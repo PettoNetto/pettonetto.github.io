@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-br" manifest="appcache.manifest">
+<head>
+    <meta charset="utf-8">
+    <title>PettoNetto POP</title>
+    <meta name="description" content="WebApp de exemplo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<script>
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker
+           .register('/sw.js')
+           .then(function() { console.log("Service Worker Registered"); });
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+</script>
+
+<body>
+<div class="current-page">
+
+<main class="home">
+
+	<h1 class="z-depth-1">POP</h1>
+
+	<div class="collection z-depth-1">
+		<a href="home.html" class="collection-item waves-effect">
+			<i class="material-icons">home</i>
+			Home
+		</a>
+
+		<a href="pets.html" class="collection-item waves-effect">
+			<i class="material-icons">stars</i>
+			Pets
+		</a>
+		
+		<a href="estabelecimentos.html" class="collection-item waves-effect">
+			<i class="material-icons">shopping</i>
+			Lojas &amp; Clínicas
+		</a>
+
+		<a href="eventos.html" class="collection-item waves-effect">
+			<i class="material-icons">event</i>
+			Eventos
+		</a>
+		
+		<a href="contato.html" class="collection-item waves-effect">
+			<i class="material-icons">mail</i>
+			Contato
+		</a>
+	</div>
+
+</main>
+
+</div><!--/.current-page-->
+
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/materialize-0.97.0.min.js"></script>
+<script src="js/spa.js"></script>
+<script src="js/main.js"></script>
+<script src="js/install.js"></script>
+
+<script src="js/pagamento.js"></script>
+<script src="js/vendor/quagga.min.js"></script>
+<script src="js/barcode.js"></script>
+
+</body>
+</html>
